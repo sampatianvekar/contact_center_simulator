@@ -131,4 +131,6 @@ Each state change (assigning a call, ending a call, changing a status) is one sy
 
 ## Notes
 
-I built this while learning contact center concepts, with an AI assistant helping me plan, write and review the code.
+This project was developed as a hands-on implementation of core cloud contact center concepts. AI tools were used as development assistants for planning, implementation guidance, code review, and troubleshooting.
+
+The routing logic, application behaviour, and design decisions were reviewed and tested throughout development.
