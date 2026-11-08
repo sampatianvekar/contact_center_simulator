@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agent and admin</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Contact Center Simulator</h1>
+    <nav>
+      <a href="index.html">Customer</a>
+      <a href="agent.html" class="active">Agent and admin</a>
+    </nav>
+  </header>
+  <main>
+    <section class="card">
+      <h2>My desk</h2>
+      <label for="agentSelect">Acting as</label>
+      <select id="agentSelect"></select>
+      <p class="note">There is no login in this simulation. Pick which agent you are.</p>
+      <p>Status: <span id="myStatus" class="badge"></span></p>
+      <div id="statusButtons" class="row"></div>
+      <p id="actionError" class="error"></p>
+      <div id="myCall"></div>
+    </section>
+
+    <section class="card">
+      <h2>Waiting in my queue</h2>
+      <div id="myQueue" class="tableWrap"></div>
+    </section>
+
+    <section class="card">
+      <h2>Queues</h2>
+      <div id="queueStats" class="grid3"></div>
+    </section>
+
+    <section class="card">
+      <h2>Agents</h2>
+      <div id="agentTable" class="tableWrap"></div>
+    </section>
+
+    <section class="card">
+      <h2>Call history</h2>
+      <div id="historyTable" class="tableWrap"></div>
+      <p class="note">Showing the latest 20 calls. The page refreshes every 3 seconds.</p>
+    </section>
+  </main>
+  <script src="agent.js"></script>
+</body>
+</html>

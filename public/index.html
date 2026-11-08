@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Customer IVR</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Contact Center Simulator</h1>
+    <nav>
+      <a href="index.html" class="active">Customer</a>
+      <a href="agent.html">Agent and admin</a>
+    </nav>
+  </header>
+  <main>
+    <section id="stepDetails" class="card">
+      <h2>Call support</h2>
+      <p class="note">This is a simulation. Use a fake name and a fake 10 digit number.</p>
+      <label for="name">Name</label>
+      <input id="name" maxlength="40" autocomplete="off">
+      <label for="phone">Phone number</label>
+      <input id="phone" inputmode="numeric" maxlength="14" autocomplete="off" placeholder="9876543210">
+      <p id="detailsError" class="error"></p>
+      <button id="callButton">Call</button>
+    </section>
+
+    <section id="stepMenu" class="card hidden">
+      <h2>Interactive menu</h2>
+      <p class="menuText">Press 1 for Billing, 2 for Technical Support, 3 for General Enquiries.</p>
+      <div id="keypad" class="keypad"></div>
+      <p id="menuMessage" class="error"></p>
+    </section>
+
+    <section id="stepStatus" class="card hidden">
+      <h2>Your call</h2>
+      <p id="statusLine" class="big"></p>
+      <p id="statusDetail" class="note"></p>
+      <div class="row">
+        <button id="hangUp" class="danger">Hang up</button>
+        <button id="newCall" class="secondary hidden">Start a new call</button>
+      </div>
+    </section>
+  </main>
+  <script src="customer.js"></script>
+</body>
+</html>
