@@ -101,6 +101,8 @@ Each state change (assigning a call, ending a call, changing a status) is one sy
 | `POST /api/calls/:id/end` | Agent ends an active call |
 | `POST /api/calls/:id/abandon` | Customer hangs up while waiting |
 | `POST /api/agents/:id/status` | Set Available, Busy or Offline |
+| `GET /api/metrics` | Queue depth, average wait, abandonment rate, call totals |
+| `GET /health` | Simple check that the server is running |
 
 ## How it maps to Amazon Connect ideas
 
