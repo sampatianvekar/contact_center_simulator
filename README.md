@@ -8,11 +8,11 @@ This is a simulation of contact center concepts. It does not configure or use re
 
 Customer page while the call waits in the Billing queue:
 
-![Customer page](screenshots/customer_page.png)
+![Customer page](customer_page.png)
 
 Agent and admin page:
 
-![Agent page](screenshots/agent_page.png)
+![Agent page](agent_page.png)
 
 ## Run it
 
