@@ -88,7 +88,7 @@ Each state change (assigning a call, ending a call, changing a status) is one sy
 | `server.js` | Express server and JSON API |
 | `public/index.html`, `customer.js` | Customer page: details, IVR keypad, live call status |
 | `public/agent.html`, `agent.js` | Agent and admin page: status, current call, queues, agents, history |
-| `test/engine.test.js` | 16 automated tests using Node's built in test runner |
+| `test/engine.test.js` | 18 automated tests using Node's built in test runner |
 
 ### API
 
@@ -103,6 +103,10 @@ Each state change (assigning a call, ending a call, changing a status) is one sy
 | `POST /api/agents/:id/status` | Set Available, Busy or Offline |
 | `GET /api/metrics` | Queue depth, average wait, abandonment rate, call totals |
 | `GET /health` | Simple check that the server is running |
+
+### Observability 
+
+Events are logged as JSON lines and that metrics reset when the server restarts.
 
 ## How it maps to Amazon Connect ideas
 
