@@ -4,6 +4,8 @@ A small web application that simulates how a cloud contact center handles a call
 
 This is a simulation of contact center concepts. It does not configure or use real Amazon Connect resources.
 
+![tests](https://github.com/sampatianvekar/contact_center_simulator/actions/workflows/test.yml/badge.svg)
+
 ## Screenshots
 
 Customer page while the call waits in the Billing queue:
