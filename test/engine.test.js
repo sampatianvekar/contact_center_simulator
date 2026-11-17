@@ -151,3 +151,27 @@ test('bad input is rejected', () => {
   assert.throws(() => engine.createCall({ name: 'Asha', phone: '9876543210', department: 'sales' }), { status: 400 });
   assert.throws(() => engine.setAgentStatus(1, 'On call'), { status: 400 });
 });
+
+test('metrics report average wait time', () => {
+  let t = 0;
+  const engine = createEngine({ clock: () => t });
+  engine.setAgentStatus(1, 'Busy');
+  engine.setAgentStatus(2, 'Busy');
+  engine.createCall(caller(1, 'billing'));
+  t = 45000;
+  engine.setAgentStatus(1, 'Available'); // the waiting call is assigned after 45 seconds
+  const m = engine.metrics();
+  assert.strictEqual(m.totals.assigned, 1);
+  assert.strictEqual(m.averageWaitSeconds, 45);
+});
+
+test('abandoned calls are counted in metrics and logged', () => {
+  const events = [];
+  const engine = createEngine({ logger: (event, data) => events.push({ event, ...data }) });
+  engine.setAgentStatus(1, 'Busy');
+  engine.setAgentStatus(2, 'Busy');
+  const call = engine.createCall(caller(1, 'billing'));
+  engine.abandonCall(call.id);
+  assert.strictEqual(engine.metrics().abandonmentRate, 1);
+  assert.ok(events.some((e) => e.event === 'call_abandoned' && e.callId === call.id));
+});

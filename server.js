@@ -5,7 +5,11 @@ const express = require('express');
 const { createEngine, ivrPress } = require('./engine');
 
 const app = express();
-const engine = createEngine();
+// One JSON line per event: easy to read by eye and easy for log tools to parse.
+const engine = createEngine({
+  logger: (event, data) =>
+    console.log(JSON.stringify({ time: new Date().toISOString(), event, ...data })),
+});
 
 app.use(express.json({ limit: '10kb' }));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -24,6 +28,8 @@ function route(handler) {
 }
 
 app.get('/api/state', route(() => engine.snapshot()));
+app.get('/api/metrics', route(() => engine.metrics()));
+app.get('/health', route(() => ({ status: 'ok', uptimeSeconds: Math.round(process.uptime()) })));
 app.get('/api/calls/:id', route((req) => engine.getCall(req.params.id)));
 
 // One IVR key press. The client sends how many wrong keys the caller has pressed so far.
