@@ -1,10 +1,9 @@
 # Contact Center Simulator (IVR, routing and agent dashboard)
+![tests](https://github.com/sampatianvekar/contact_center_simulator/actions/workflows/test.yml/badge.svg)
 
 A small web application that simulates how a cloud contact center handles a call: a customer goes through an IVR menu, the system routes the call to the right queue, and an agent picks it up from a dashboard. It is built with HTML, CSS, JavaScript, Node.js and Express, and keeps all data in memory.
 
 This is a simulation of contact center concepts. It does not configure or use real Amazon Connect resources.
-
-![tests](https://github.com/sampatianvekar/contact_center_simulator/actions/workflows/test.yml/badge.svg)
 
 ## Screenshots
 
